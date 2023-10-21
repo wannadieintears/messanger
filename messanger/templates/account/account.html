@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    {% for el in acc %}
+        <title>Account :: {{ el.username }}</title>
+        <div>
+            <h2>{{ el.username }}</h2>
+            <h3>{{ el.age }}yo</h3>
+            <h3>My contacts: {{ el.email }} | {{ el.phone }}</h3>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.name }}
+                <button type="submit">Create a chat</button>
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>
